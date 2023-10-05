@@ -1,11 +1,11 @@
 package org.example;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class PhoneBook {
     private Map<String, String> nameToNumber = new HashMap<>();
     private Map<String, String> numberToName = new HashMap<>();
+    private Set<String> names = new TreeSet<>();
 
 
 
@@ -13,6 +13,7 @@ public class PhoneBook {
         if (!nameToNumber.containsKey(name)) {
             nameToNumber.put(name,number);
             numberToName.put(number, name);
+            names.add(name);
         }
 
         return nameToNumber.size();
@@ -24,5 +25,9 @@ public class PhoneBook {
 
     public String findByName(String name) {
         return nameToNumber.get(name);
+    }
+
+    public List<String> printAllNames() {
+        return new ArrayList<>(names);
     }
 }

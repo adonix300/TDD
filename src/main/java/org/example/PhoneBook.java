@@ -27,7 +27,9 @@ public class PhoneBook {
         return nameToNumber.get(name);
     }
 
-    public List<String> printAllNames() {
-        return new ArrayList<>(names);
+    public void printAllNames() {
+        for (String name : names) {
+            System.out.println(name);
+        }
     }
 }
